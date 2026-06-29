@@ -38,7 +38,7 @@
   },
 
   "Wooden Block": {
-    "name": "Wooden Sign",
+    "name": "Wooden Block",
     "category": "Blocks",
     "tier": 1,
     "recipe": [
