@@ -1,73 +1,136 @@
-require('dotenv').config();
+require("dotenv").config();
 
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 const {
     Client,
     Collection,
     GatewayIntentBits,
-    Events
-} = require('discord.js');
+    Events,
+    ActionRowBuilder,
+    ButtonBuilder,
+    ButtonStyle
+} = require("discord.js");
+
+const {
+    createBrowser,
+    itemList
+} = require("./utils/browser");
+
+const {
+    createRecipeEmbed
+} = require("./utils/embedBuilder");
 
 const client = new Client({
-    intents: [
-        GatewayIntentBits.Guilds
-    ]
+    intents: [GatewayIntentBits.Guilds]
 });
 
-// Store commands
 client.commands = new Collection();
 
-// Load all commands
-const commandsPath = path.join(__dirname, 'commands');
-const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+// --------------------
+// Load Commands
+// --------------------
+
+const commandsPath = path.join(__dirname, "commands");
+
+const commandFiles = fs.readdirSync(commandsPath)
+    .filter(file => file.endsWith(".js"));
 
 for (const file of commandFiles) {
 
     const command = require(path.join(commandsPath, file));
 
-    if ('data' in command && 'execute' in command) {
+    if ("data" in command && "execute" in command) {
 
         client.commands.set(command.data.name, command);
 
-        console.log(`Loaded command: ${command.data.name}`);
-
-    } else {
-
-        console.log(`[WARNING] ${file} is missing data or execute.`);
+        console.log(`Loaded ${command.data.name}`);
 
     }
 
 }
 
-// Bot Ready
-client.once(Events.ClientReady, readyClient => {
+// --------------------
+// Ready
+// --------------------
 
-    console.log(`✅ Logged in as ${readyClient.user.tag}`);
+client.once(Events.ClientReady, client => {
+
+    console.log(`✅ Logged in as ${client.user.tag}`);
 
 });
 
-// Listen for interactions
+// --------------------
+// Interaction
+// --------------------
+
 client.on(Events.InteractionCreate, async interaction => {
 
-    // ------------------------
+    // ============================================
     // AUTOCOMPLETE
-    // ------------------------
+    // ============================================
+
     if (interaction.isAutocomplete()) {
 
         const command = client.commands.get(interaction.commandName);
 
-        if (!command || !command.autocomplete)
+        if (!command?.autocomplete)
             return;
+
+        return command.autocomplete(interaction);
+
+    }
+
+    // ============================================
+    // BUTTONS
+    // ============================================
+
+    if (interaction.isButton()) {
 
         try {
 
-            await command.autocomplete(interaction);
+            const id = interaction.customId;
 
-        } catch (error) {
+            // Previous Tier
 
-            console.error("Autocomplete Error:", error);
+            if (id.startsWith("recipes_prev_")) {
+
+                const page = Number(id.split("_")[2]);
+
+                return interaction.update(
+                    createBrowser(page - 1)
+                );
+
+            }
+
+            // Next Tier
+
+            if (id.startsWith("recipes_next_")) {
+
+                const page = Number(id.split("_")[2]);
+
+                return interaction.update(
+                    createBrowser(page + 1)
+                );
+
+            }
+
+            // Back
+
+            if (id.startsWith("recipes_back_")) {
+
+                const page = Number(id.split("_")[2]);
+
+                return interaction.update(
+                    createBrowser(page)
+                );
+
+            }
+
+        } catch (err) {
+
+            console.error(err);
 
         }
 
@@ -75,13 +138,83 @@ client.on(Events.InteractionCreate, async interaction => {
 
     }
 
-    // ------------------------
+    // ============================================
+    // SELECT MENU
+    // ============================================
+
+    if (interaction.isStringSelectMenu()) {
+
+        try {
+
+            if (!interaction.customId.startsWith("recipes_select_"))
+                return;
+
+            const page = Number(
+                interaction.customId.split("_")[2]
+            );
+
+            const selected = interaction.values[0];
+
+            const item = itemList.find(i =>
+                i.name.toLowerCase() === selected
+            );
+
+            if (!item) {
+
+                return interaction.reply({
+
+                    content: "❌ Item not found.",
+
+                    ephemeral: true
+
+                });
+
+            }
+
+            const embed = createRecipeEmbed(item);
+
+            const row = new ActionRowBuilder()
+
+                .addComponents(
+
+                    new ButtonBuilder()
+
+                        .setCustomId(`recipes_back_${page}`)
+
+                        .setLabel("⬅ Back to Browser")
+
+                        .setStyle(ButtonStyle.Primary)
+
+                );
+
+            return interaction.update({
+
+                embeds: [embed],
+
+                components: [row]
+
+            });
+
+        } catch (err) {
+
+            console.error(err);
+
+        }
+
+        return;
+
+    }
+
+    // ============================================
     // SLASH COMMANDS
-    // ------------------------
+    // ============================================
+
     if (!interaction.isChatInputCommand())
         return;
 
-    const command = client.commands.get(interaction.commandName);
+    const command = client.commands.get(
+        interaction.commandName
+    );
 
     if (!command)
         return;
@@ -90,22 +223,32 @@ client.on(Events.InteractionCreate, async interaction => {
 
         await command.execute(interaction);
 
-    } catch (error) {
+    }
 
-        console.error(error);
+    catch (err) {
+
+        console.error(err);
 
         if (interaction.replied || interaction.deferred) {
 
             await interaction.followUp({
-                content: "❌ There was an error while executing this command.",
+
+                content: "❌ Error executing command.",
+
                 ephemeral: true
+
             });
 
-        } else {
+        }
+
+        else {
 
             await interaction.reply({
-                content: "❌ There was an error while executing this command.",
+
+                content: "❌ Error executing command.",
+
                 ephemeral: true
+
             });
 
         }
@@ -114,5 +257,6 @@ client.on(Events.InteractionCreate, async interaction => {
 
 });
 
-// Login
+// --------------------
+
 client.login(process.env.TOKEN);
