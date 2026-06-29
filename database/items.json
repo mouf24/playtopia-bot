@@ -1,0 +1,578 @@
+ {
+  "flora": {
+    "name": "Flora",
+    "category": "Background",
+    "tier": 1,
+    "recipe": [
+      "Grass Seed",
+      "Soil Background Seed"
+    ],
+        "requiredSeeds": {
+            "Grass Seed": 1,
+            "Soil Background Seed": 1
+        },
+        "craftTree": [
+            "Flora",
+            "├─ Grass",
+            "└─ Soil Background"
+        ]
+  },
+
+  "wooden sign": {
+    "name": "Wooden Sign",
+    "category": "Background",
+    "tier": 1,
+    "recipe": [
+      "Grass Seed",
+      "Stone Seed"
+    ],
+        "requiredSeeds": {
+            "Grass Seed": 1,
+            "Stone Seed": 1
+        },
+        "craftTree": [
+            "Wooden Sign",
+            "├─ Grass",
+            "└─ Stone"
+        ]
+  },
+
+  "Wooden Block": {
+    "name": "Wooden Sign",
+    "category": "Blocks",
+    "tier": 1,
+    "recipe": [
+      "Grass Seed",
+      "Magma Seed"
+    ],
+        "requiredSeeds": {
+            "Grass Seed": 1,
+            "Magma": 1
+        },
+        "craftTree": [
+            "Wooden Block",
+            "├─ Grass",
+            "└─ Magma"
+        ]
+  },
+
+  "glass wall panel": {
+    "name": "Glass Wall Panel",
+    "category": "Background",
+    "tier": 1,
+    "recipe": [
+      "Stone Seed",
+      "Magma Seed"
+    ],
+        "requiredSeeds": {
+            "Stone Seed": 1,
+            "Magma Seed": 1
+        },
+        "craftTree": [
+            "Wooden Block",
+            "├─ Stone",
+            "└─ Magma"
+        ]
+  },
+
+  "wooden entrance": {
+    "name": "Wooden Entrance",
+    "category": "Blocks",
+    "tier": 1,
+    "recipe": [
+      "Stone Seed",
+      "Soil Background Seed"
+    ],
+        "requiredSeeds": {
+            "Stone Seed": 1,
+            "Soil Background Seed": 1
+        },
+        "craftTree": [
+            "Wooden Entrance",
+            "├─ Stone",
+            "└─ Soil Background"
+        ]
+  },
+
+  "gravel": {
+    "name": "Gravel",
+    "category": "Blocks",
+    "tier": 1,
+    "recipe": [
+      "Magma Seed",
+      "Soil Background Seed"
+    ],
+        "requiredSeeds": {
+            "Magma Seed": 1,
+            "Soil Background Seed": 1
+        },
+        "craftTree": [
+            "Gravel",
+            "├─ Magma",
+            "└─ Soil Background"
+        ]
+  },
+
+  "mushroom bump": {
+    "name": "Mushroom Bump",
+    "category": "Blocks",
+    "tier": 2,
+    "recipe": [
+      "Grass Seed",
+      "Flora Seed"
+    ],
+        "requiredSeeds": {
+            "Grass Seed": 2,
+            "Soil Background Seed": 1,
+            "Flora Seed": 1
+        },
+        "craftTree": [
+            "Mushroom Bump",
+            "├─ Grass",
+            "└─ Flora",
+            "   ├─ Grass",
+            "   └─ Soil Background"
+        ]
+  },
+
+  "wooden crate": {
+    "name": "Wooden Crate",
+    "category": "Blocks",
+    "tier": 2,
+    "recipe": [
+      "Grass Seed",
+      "Wooden Sign Seed"
+    ],
+        "requiredSeeds": {
+            "Grass Seed": 2,
+            "Stone Seed": 1,
+            "Wooden Sign Seed": 1
+        },
+        "craftTree": [
+            "Wooden Crate",
+            "├─ Grass",
+            "└─ Wooden Sign",
+            "   ├─ Grass",
+            "   └─ Stone"
+        ]
+  },
+
+  "wooden platform": {
+    "name": "Wooden Platform",
+    "category": "Platform",
+    "tier": 2,
+    "recipe": [
+      "Grass Seed",
+      "Wooden Block Seed"
+    ],
+        "requiredSeeds": {
+            "Grass Seed": 2,
+            "Magma Seed": 1,
+            "Wooden Block Seed": 1
+        },
+        "craftTree": [
+            "Wooden Platform",
+            "├─ Grass",
+            "└─ Wooden Block",
+            "   ├─ Grass",
+            "   └─ Magma"
+        ]
+  },
+
+  "wooden wall panel": {
+    "name": "Wooden Wall Panel",
+    "category": "Background",
+    "tier": 2,
+    "recipe": [
+      "Soil Background Seed",
+      "Wooden Block Seed"
+    ],
+        "requiredSeeds": {
+            "Grass Seed": 1,
+            "Soil Background Seed": 1,
+            "Stone Seed": 1,
+	    "Wooden Sign Seed": 1
+        },
+        "craftTree": [
+            "Wooden Wall Panel",
+            "├─ Soil Background",
+            "└─ Wooden Sign",
+            "   ├─ Grass",
+            "   └─ Stone"
+        ]
+  },
+
+  "window panel": {
+    "name": "Window Panel",
+    "category": "Background",
+    "tier": 2,
+    "recipe": [
+      "Soil Background Seed",
+      "Glass Wall Panel Seed"
+    ],
+        "requiredSeeds": {
+            "Soil Background Seed": 1,
+            "Stone Seed": 1,
+            "Magma Seed": 1,
+	    "Glass Wall Panel Seed": 1
+        },
+        "craftTree": [
+            "Window Panel",
+            "├─ Soil Background",
+            "└─ Glass Wall Panel",
+            "   ├─ Stone",
+            "   └─ Magma"
+        ]
+  },
+
+  "bush": {
+    "name": "Bush",
+    "category": "Background",
+    "tier": 2,
+    "recipe": [
+      "Soil Background Seed",
+      "Flora Seed"
+    ],
+        "requiredSeeds": {
+            "Grass Seed": 1,
+            "Soil Background Seed": 2,
+            "Flora Seed": 1
+        },
+        "craftTree": [
+            "Bush",
+            "├─ Soil Background",
+            "└─ Flora",
+            "   ├─ Grass",
+            "   └─ Soil Background"
+        ]
+  },
+
+  "flare": {
+    "name": "Flare",
+    "category": "Background",
+    "tier": 2,
+    "recipe": [
+      "Magma Seed",
+      "Wooden Sign Seed"
+    ],
+        "requiredSeeds": {
+            "Grass Seed": 1,
+            "Stone Seed": 1,
+            "Magma Seed": 1,
+  	    "Wooden Sign": 1
+        },
+        "craftTree": [
+            "Flare",
+            "├─ Magma",
+            "└─ Wooden Sign",
+            "   ├─ Grass",
+            "   └─ Stone"
+        ]
+  },
+
+  "basalt": {
+    "name": "Basalt",
+    "category": "Blocks",
+    "tier": 2,
+    "recipe": [
+      "Stone Seed",
+      "Gravel Seed"
+    ],
+        "requiredSeeds": {
+            "Soil Background Seed": 1,
+            "Stone Seed": 1,
+            "Magma Seed": 1,
+	    "Gravel Seed": 1
+        },
+        "craftTree": [
+            "Basalt",
+            "├─ Stone",
+            "└─ Gravel",
+            "   ├─ Magma",
+            "   └─ Soil Background"
+        ]
+  },
+
+  "painting": {
+    "name": "Painting",
+    "category": "Background",
+    "tier": 3,
+    "recipe": [
+      "Window Panel Seed",
+      "Glass Wall Panel Seed"
+    ],
+        "requiredSeeds": {
+            "Soil Background Seed": 1,
+            "Stone Seed": 2,
+            "Magma Seed": 2,
+            "Glass Wall Panel Seed": 2,
+            "Window Panel Seed": 1
+        },
+        "craftTree": [
+            "Painting",
+            "├─ Window Panel",
+            "│  ├─ Soil Background",
+            "│  └─ Glass Wall Panel",
+            "│     ├─ Stone",
+            "│     └─ Magma",
+            "└─ Glass Wall Panel",
+            "   ├─ Stone",
+            "   └─ Magma"
+        ]
+  },
+
+  "dungeon bricks": {
+    "name": "Dungeon Bricks",
+    "category": "Blocks",
+    "tier": 3,
+    "recipe": [
+      "Gravel Seed",
+      "Basalt Seed"
+    ],
+        "requiredSeeds": {
+            "Soil Background Seed": 2,
+            "Stone Seed": 1,
+            "Magma Seed": 2,
+            "Gravel Seed": 2,
+            "Basalt Seed": 1
+        },
+        "craftTree": [
+            "Dungeon Bricks",
+            "├─ Gravel",
+            "│  ├─ Magma",
+            "│  └─ Soil Background",
+            "└─ Basalt",
+            "   ├─ Stone",
+            "   └─ Gravel",
+            "      ├─ Magma",
+            "      └─ Soil Background"
+        ]
+  },
+
+  "dungeon entrance": {
+    "name": "Dungeon Entrance",
+    "category": "Blocks",
+    "tier": 3,
+    "recipe": [
+      "Wooden Entrance Seed",
+      "Flare Seed"
+    ],
+        "requiredSeeds": {
+            "Grass Seed": 1,
+            "Soil Background Seed": 1,
+            "Stone Seed": 1,
+            "Magma Seed": 1,
+            "Wooden Sign Seed": 1,
+            "Flare Seed": 1,
+	    "Wooden Entrance Seed": 1
+        },
+        "craftTree": [
+            "Dungeon Entrance",
+            "├─ Wooden Entrance",
+            "│  ├─ Stone",
+            "│  └─ Soil Background",
+            "└─ Flare",
+            "   ├─ Magma",
+            "   └─ Wooden Sign",
+            "      ├─ Grass",
+            "      └─ Stone"
+        ]
+  },
+
+  "dungeon platform": {
+    "name": "Dungeon Platform",
+    "category": "Platform",
+    "tier": 3,
+    "recipe": [
+      "Wooden Platform Seed",
+      "Glass Wall Panel Seed"
+    ],
+        "requiredSeeds": {
+            "Grass Seed": 2,
+            "Stone Seed": 1,
+            "Magma Seed": 2,
+            "Wooden Block Seed": 1,
+            "Glass Wall Panel Seed": 1,
+	    "Wooden Platform Seed": 1
+        },
+        "craftTree": [
+            "Dungeon Platform",
+            "├─ Wooden Platform",
+            "│  ├─ Grass",
+            "│  └─ Wooden Block",
+            "│     ├─ Grass",
+            "│     └─ Magma",
+            "└─ Glass Wall Panel",
+            "   ├─ Stone",
+            "   └─ Magma"
+        ]
+  },
+
+  "glass block": {
+    "name": "Glass Block",
+    "category": "Blocks",
+    "tier": 3,
+    "recipe": [
+      "Glass Wall Panel Seed",
+      "Basalt Seed"
+    ],
+        "requiredSeeds": {
+            "Soil Background Seed": 1,
+            "Stone Seed": 2,
+            "Magma Seed": 2,
+            "Gravel Seed": 1,
+            "Glass Wall Panel Seed": 1,
+	    "Basalt Seed": 1
+        },
+        "craftTree": [
+            "Glass Block",
+            "├─ Basalt",
+            "│  ├─ Gravel",
+            "│  │  ├─ Soil Background",
+            "│  │  └─ Magma",
+            "│  └─ Stone",
+            "└─ Glass Wall Panel",
+            "   ├─ Stone",
+            "   └─ Magma"
+        ]
+  },
+
+  "vines": {
+    "name": "Vines",
+    "category": "Blocks",
+    "tier": 3,
+    "recipe": [
+      "Mushroom Bump Seed",
+      "Bush Seed"
+    ],
+        "requiredSeeds": {
+            "Grass Seed": 3,
+            "Soil Background Seed": 2,
+            "Flora Seed": 2
+        },
+        "craftTree": [
+            "Vines",
+            "├─ Mushroom Bump",
+            "│  ├─ Grass",
+            "│  └─ Flora",
+            "│     ├─ Grass",
+            "│     └─ Soil Background",
+            "└─ Flora",
+            "   ├─ Grass",
+            "   └─ Soil Background"
+        ]
+  },
+
+  "wooden ladder": {
+    "name": "Wooden Ladder",
+    "category": "Blocks",
+    "tier": 3,
+    "recipe": [
+      "Wooden Platform Seed",
+      "Gravel Seed"
+    ],
+        "requiredSeeds": {
+            "Grass Seed": 2,
+            "Soil Background Seed": 1,
+            "Magma Seed": 2,
+            "Wooden Block Seed": 1,
+            "Gravel Seed": 1,
+	    "Wooden Platform Seed": 1
+        },
+        "craftTree": [
+            "Wooden Ladder",
+            "├─ Wooden Platform",
+            "│  ├─ Grass",
+            "│  └─ Wooden Block",
+            "│     ├─ Grass",
+            "│     └─ Magma",
+            "└─ Gravel",
+            "   ├─ Magma",
+            "   └─ Soil Background"
+        ]
+  },
+
+  "wooden table": {
+    "name": "Wooden Table",
+    "category": "Platform",
+    "tier": 3,
+    "recipe": [
+      "Wooden Block Seed",
+      "Wooden Platform Seed"
+    ],
+        "requiredSeeds": {
+            "Grass Seed": 3,
+            "Magma Seed": 2,
+            "Wooden Block Seed": 2,
+            "Wooden Platform Seed": 1
+        },
+        "craftTree": [
+            "Wooden Table",
+            "├─ Wooden Platform",
+            "│  ├─ Grass",
+            "│  └─ Wooden Block",
+            "│     ├─ Grass",
+            "│     └─ Magma",
+            "└─ Wooden Block",
+            "   ├─ Grass",
+            "   └─ Magma"
+        ]
+  },
+
+  "wooden log": {
+    "name": "Wooden Log",
+    "category": "Blocks",
+    "tier": 3,
+    "recipe": [
+      "Wooden Block Seed",
+      "Wooden Wall Panel Seed"
+    ],
+        "requiredSeeds": {
+            "Grass Seed": 2,
+            "Soil Background Seed": 1,
+            "Magma Seed": 2,
+            "Wooden Block Seed": 2,
+            "Wooden Wall Panel Seed": 1
+        },
+        "craftTree": [
+            "Wooden Log",
+            "├─ Wooden Wall Panel",
+            "│  ├─ Soil Background",
+            "│  └─ Wooden Block",
+            "│     ├─ Grass",
+            "│     └─ Magma",
+            "└─ Wooden Block",
+            "   ├─ Grass",
+            "   └─ Magma"
+        ]
+  },
+
+  "arrow pointer": {
+    "name": "Arrow Pointer",
+    "category": "Background",
+    "tier": 3,
+    "recipe": [
+      "Wooden Sign Seed",
+      "Bush Seed"
+    ],
+        "requiredSeeds": {
+            "Grass Seed": 2,
+            "Soil Background Seed": 2,
+            "Stone Seed": 1,
+            "Flora Seed": 1,
+            "Wooden Sign Seed": 1,
+	    "Bush Seed": 1
+        },
+        "craftTree": [
+            "Arrow Pointer",
+            "├─ Bush",
+            "│  ├─ Soil Background",
+            "│  └─ Flora",
+            "│     ├─ Grass",
+            "│     └─ Soil Background",
+            "└─ Wooden Sign",
+            "   ├─ Grass",
+            "   └─ Stone"
+        ]
+  }
+}
